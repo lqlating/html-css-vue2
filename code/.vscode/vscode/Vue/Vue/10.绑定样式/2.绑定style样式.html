@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        .basic{
+            width: 500px;
+            text-align: center;
+        }
+        .Border{
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+        .red{background-color: red;}
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+  <div id="root">
+    <div class="basic" :class="mood" :style="styleObj" @click="changeMood">hello,{{name}}</div>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data:{
+        name:'tom',
+        mood:'blue',
+        styleObj:{
+            color:'blue',
+            fontSize:'40px'
+      }, 
+      
+        },
+      methods:{
+        changeMood(){
+         const arr =['Border','red','blue']
+         this.mood = arr[Math.floor(Math.random()*3)]
+        },
+       
+      }
+    })
+  </script>
+</html>

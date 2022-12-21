@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 重置样式表 -->
+    <link rel="stylesheet" href="./reset.css">
+    <!-- 文字图标 -->
+    <link rel="stylesheet" href="../font awesome/css/all.css">
+</head>
+<style>
+    .clearfix::before,
+    .clearfix::after{
+        content: '';
+        display: table;
+        clear: both;
+    }
+    body{
+        font-size: 14px/1.5 'Courier New', Courier, monospace;
+        color: #999;
+    }
+.out{
+    background-color:#E3E4E5;
+    line-height: 30px;
+    border-bottom: 1px solid #ddd;
+}
+.in{
+    width: 1190px;
+    margin: 0 auto;
+}
+.location{
+    float:left;
+}
+.beijing:hover{
+    background-color: white;
+    
+}
+.beijing{
+    padding: 10px 10px;
+}
+.location:hover .down{
+    width: 320px;
+    height: 436px;
+    background-color: white;
+    position: absolute;
+    border: 1px solid #999;
+    box-shadow: 2px 2px rgb(0, 0, 0,.3);
+    top: 30px;
+    z-index: 9999;
+    border-top: none;
+}
+.location:hover .beijing{
+    background-color: white;
+}
+ul{
+    float: right;
+}
+li{
+    float: left;
+}
+.out .location,
+a{
+    text-decoration: none;
+    color:#999;
+}
+
+.out .location:hover{
+    color: red;
+}
+.ji{
+    color: red;
+    }
+.out .in ul .log:hover{
+    color: red;
+}
+.line{
+    margin: 0 5px;
+}
+.red:hover,#t:hover{
+    color: red;
+
+}
+.free,.u{
+    color: red;
+}
+#t{
+    margin-right: 8px;
+}
+
+</style>
+<body>
+   <div class="out">
+    <div class="in clearfix">
+        <div class="location">
+            <a href="#" class="beijing">
+                <i class="fas fa-map-marker-alt ji"></i>北京
+            </a>
+            <div class="down"></div>
+        </div>
+        <ul>
+            <li class>
+            <li>
+                <a href="#" id="t">你好，请登录</a>
+            </li>
+            <li>
+                <a href="#" class="free">免费注册</a>
+            </li>
+            </li>
+            <li class="line">|</li>
+            <li><a href="#" class="red">我的订单</a></li>
+            <li class="line">|</li>
+            <li><a href="#" class="red">我的京东</a></li>
+            <li class="line">|</li>
+            <li><a href="#" class="red">京东会员
+            <li class="line">|</li>
+            <li><a href="#" class="u">企业采购<i class=" fas fa-angle-down"></i></a></li>
+            <li class="line">|</li>
+            <li>客户服务<i class=" fas fa-angle-down"></i></li>
+            <li class="line">|</li>
+            <li>网址导航<i class=" fas fa-angle-down"></i></li>
+            <li class="line">|</li>
+            <li>手机京东</li>
+            
+        </ul>
+    </div>
+   </div>
+</body>
+</html>

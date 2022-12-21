@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<style>
+</style>
+<body>
+  <div id="root">
+    <el-descriptions title="用户信息">
+        <el-descriptions-item label="用户名">kooriookami</el-descriptions-item>
+        <el-descriptions-item label="手机号">18100000000</el-descriptions-item>
+        <el-descriptions-item label="居住地">苏州市</el-descriptions-item>
+        <el-descriptions-item label="备注">
+          <el-tag size="small">学校</el-tag>
+        </el-descriptions-item>
+        <el-descriptions-item label="联系地址">江苏省苏州市吴中区吴中大道 1188 号</el-descriptions-item>
+    </el-descriptions>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data() {
+      
+  }
+})
+  </script>
+</html>

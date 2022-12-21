@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    ul{
+        margin-top: -130px;
+        margin-left: 20px;
+        padding-left: 12px;
+        
+    }
+    a{
+       /* 去除下划线 */
+        text-decoration: none;
+        color: black;
+    }
+    li{
+        padding: 1px;
+        
+
+    }
+    li::before{
+        /*利用伪元素为每行最前面的内容加上符号 */
+        content: '*';
+        /* 将文字向右边挤 */
+        margin-right: 40px;
+    }
+    li a:hover{
+        /* 仅将鼠标移动至内容时文字设置为红色（加a则为红色，不加a为全体） */
+        color: red;
+    }
+
+    .x{
+        
+        font-size: 20px;
+       
+        height: 40px;
+        /* 为顶端设置红色边框并且将其设置为行内块元素使其长度与文字一致 */
+        border-top: 1px red solid;
+        display:inline-block ;
+        /* 使红色边框上移一个像素，与整体边框重合 */
+        margin-top: -1px;
+        /* 加粗字体 */
+        font-weight: bold;
+        padding-top: 10px;
+        
+    }
+    h1{
+        /* 将文字向上移动至图片内部 */
+        margin-top: -27px;
+        font-size: 20px;
+        color: white;
+        padding-left: 10px;
+    }
+    .total{
+        width: 500px;
+        height: 500px;
+        background-color: aquamarine;
+        /* 为顶端设置边框条 */
+        border-top:1px solid rgb(202, 188, 188);
+        
+        
+    }
+    body{
+        margin: 10px;
+    }
+    .pic{
+        height: 353px;;
+    }
+    
+</style>
+<body>
+    <div class="total">
+        <div class="x">体育</div>
+ <div class="pic">
+<a href="#">
+<img width="200px" height="200px" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.H_BvesipB-0tE_AOzZ_-vwHaKe?w=200&h=283&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="">
+ </a> 
+ <h1>蜘蛛侠街头惨遭杀害</h1>
+ </div>
+<div class="tiaomu">
+ <ul>
+    <li><a href="#">乔治：我爱la 喜欢和LBJ一起打球</a></li>
+    <li><a href="#">格林：三年前降薪就在等kd 特制T恤嘲讽LBJ</a></li>
+    <li><a href="#">塔克4000双鞋让保罗羡慕嫉妒 乔丹被震惊</a></li>
+    <li><a href="#">CBA下季新赛制：常规赛1四组循环 增值四十六轮</a></li>
+</ul>   
+</div>
+</div>
+</body>
+</html>

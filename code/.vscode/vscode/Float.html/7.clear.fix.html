@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .i{
+        width: 200px;
+        height: 200px;
+        background-color: salmon;
+        
+    }
+    .o{
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        margin-top: 100px;
+    }
+    /* 同时解决高度塌陷和父子元素上边距重叠问题，不再使用after伪类 */
+    .clearfix::before,
+    .clearfix::after{
+        content: '';
+        display: table;
+        clear:both;
+    }
+</style>
+<body>
+    <div class="i clearfix">
+        <div class="o"></div>
+</div>
+    
+</body>
+</html>

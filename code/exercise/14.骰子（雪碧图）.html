@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        perspective: 800px;
+    }
+    .out {
+        background-color: #bfa;
+        width: 250px;
+        height: 250px;
+        margin: 100px auto;
+        transform-style: preserve-3d;
+        animation: run 20s infinite;
+    }
+
+    .out div {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+
+    }
+img{
+    vertical-align: top;
+}
+    .one {
+
+        background-image: url(../picture/骰子.jpg);
+        background-position: -96px -98px;
+        transform: rotateY(90deg) translateZ(125px);
+    }
+
+    .two {
+
+        background-image: url(../picture/骰子.jpg);
+        background-position: -474px -96px;
+        transform: rotateY(-90deg) translateZ(125px);
+    }
+
+    .three {
+
+        background-image: url(../picture/骰子.jpg);
+        background-position: -850px -96px;
+        transform: rotateX(90deg) translateZ(125px);
+    }
+
+    .four {
+
+        background-image: url(../picture/骰子.jpg);
+        background-position: -98px -473px;
+        transform: rotateX(-90deg) translateZ(125px);
+    }
+
+    .five {
+
+        background-image: url(../picture/骰子.jpg);
+        background-position: -474px -473px;
+        transform: rotateY(180deg) translateZ(125px);
+    }
+
+    .six {
+
+        background-image: url(../picture/骰子.jpg);
+        background-position: -850px -475px;
+        transform: rotateY(0deg) translateZ(125px);
+    }
+    @keyframes run {
+        from{
+            transform: rotateX(0) rotateZ(0);
+
+        }
+        to{
+            transform: rotateX(360deg) rotateZ(360deg);
+
+        }
+        
+    }
+</style>
+
+<body>
+    <div class="out">
+   
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+            <div class="four"></div>
+            <div class="five"></div>
+            <div class="six"></div>
+
+    </div>
+</body>
+
+</html>

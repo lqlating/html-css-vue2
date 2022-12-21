@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="../reset/reset.css">
+</head>
+<style>
+    /* 搜索框样式 */
+    .el-header{
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        
+    }
+    li{
+        list-style: none;
+        line-height: 36px;
+        height: 36px;
+    }
+    label{
+        float:left;
+        margin-left: 10px;
+    }
+    /* 删除按钮样式 */
+    .DeleteButton{
+        float: right;
+        display: none;
+    }
+    li:hover{
+        background-color: #ddd;
+    }
+    li:hover .DeleteButton{
+        display: block;
+    }
+    /* 中部主体样式 */
+    .el-main{
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px rgba(223, 207, 207, 0.908) solid;
+        padding: 0;
+    }
+    /* 按钮样式 */
+    .button{
+        margin-bottom: 3px;
+    }
+    /* 下方样式 */
+    .el-footer{
+        border-radius: 5px;
+        border: 1px rgba(223, 207, 207, 0.908) solid;
+        padding: 0;
+        padding-left: 10px;
+        line-height: 60px;
+    }
+    .all{
+        margin-right: 15px;
+    }
+    .delete{
+        float: right;
+    }
+    /* 外部容器样式 */
+    .el-container{
+        width: 800px;
+        margin: 0 auto;
+        border-radius: 5px;
+        border: 1px rgba(223, 207, 207, 0.908) solid;
+        padding: 4px;
+    }
+
+</style>
+<body>
+  <div id="root">
+    <el-container>
+        <!-- 搜索栏 -->
+        <el-header>
+           <el-input placeholder="按回车输入内容"></el-input>
+        </el-header>
+        <!-- 中部文本主体 -->
+        <el-main>
+           <li>
+            <label>
+                <input type="checkbox">
+                <span>nihao</span>
+            </label>
+            <el-button type="danger" size="medium" class="DeleteButton">删除</el-button>
+           </li>
+        </el-main>
+        <!-- 下方已完成 -->
+        <el-footer>
+            <input type="checkbox">
+            <span>未完成  / 全部 5</span>
+            <span class="delete"><el-button type="danger" size="mediun">删除已完成</el-button>
+            </span>
+        </el-footer>
+      </el-container>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data:{
+  }
+})
+  </script>
+</html>

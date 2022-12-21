@@ -1,0 +1,56 @@
+.clearfix::before,
+.clearfix::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+body{
+    font: 14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+    color: #333;
+}
+.w{
+    /* 设置容器的宽度 */
+    width: 1226px;
+    /* 居中 */
+    margin:0px auto;
+    /* 限制网页的最小宽度 */
+    min-width: 1226px;
+}
+a{
+    text-decoration: none;
+    color: #333;
+    
+}
+.header{
+    height: 100px;
+  
+}
+/* 设置浮动，上边距 */
+.header .logo{
+    float:left;
+    position: relative;
+    width: 55px;
+    height: 55px;
+    margin-top: 22.5px;
+    background-color: red;
+}
+/* 设置图片的大小 */
+.header .logo .mi{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+}
+/* 将home图标常态隐藏起来 */
+.home{
+    width: 55px;
+    height: 55px;
+    display: none;
+}
+/* 当鼠标移入时将mi图标隐藏 */
+.header .logo:hover .mi{
+    display: none;
+}
+/* 当鼠标移入时显示出home图标 */
+.header .logo:hover .home{
+    display: block;
+}

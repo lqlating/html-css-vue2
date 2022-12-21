@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <div id="root">
+   <app></app>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    const student = Vue.extend({
+        template:`
+        <div>
+            <h1>hello,{{name}}</h1>
+            <h2>this is age:{{age}}</h2>
+        </div>`,
+        data() {
+            return {
+                name:'jack',
+                age:18
+            }
+        },
+    })
+    const school = Vue.extend({
+        template:`
+        <div>
+            <h1>my like sports:{{sports}}</h1>
+            <h2>my like gift:{{gift}}</h2>
+        </div>
+        `,
+        data() {
+            return {
+                sports:"table-tennis",
+                gift:"car"
+            }
+        },
+    })
+    const app =Vue.extend({
+        template:`
+        <div>
+         <student></student>
+         <school></school>
+        </div>`,
+        components:{
+            student,
+            school,
+        }
+    })
+    new Vue({
+      el: '#root',
+      components:{
+        app
+       }
+    })
+  </script>
+</html>

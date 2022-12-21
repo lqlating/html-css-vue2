@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //1. 调用tostring（）方法将其他类型变量转换为tostring
+    let a = 100
+    a=a.toString()
+    console.log(typeof a,a)
+    /* 对null和undefi调用tostring函数是无效得 */
+    // 2.调用string（）函数，此函数可以对null和undefined生效
+let b=200
+b=String(b)
+console.log(typeof b,b)
+
+</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./font awesome/css/all.css">
+    <style>
+        /* 伪类使用 */
+    li::before{
+        content: '\f2a7';
+        font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 80px;
+    }
+    li{
+        font-size: 80px;
+    }
+
+    </style>
+</head>
+<body>
+    <ul>
+         <li>床前明月光</li>
+         <li>疑是地上霜</li>
+         <li>举头望明月</li>
+         <li>低头思故乡</li>
+    </ul>
+    <!-- 实体：&#x + 编号 （前面必须加类）-->
+    <p class="fas">&#xf0f3</p>
+</body>
+</html>

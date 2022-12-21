@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .b{background-color: aquamarine;
+        width: 100px;
+        height: 100px;
+        /* box-shadow中：
+        第一个值代表水平偏移量（可以为负值）
+        第二个值代表垂直偏移量（可以为负值）
+        第三个值代表模糊半径
+        第四个值代表颜色 */
+        box-shadow: 10px 10px 10px red;
+        /* boder-radius：
+        后面的值代表边框变为圆角的半径 */
+        border-radius: 30px;
+
+    }
+    .b:hover{
+        /* 轮廓不会挤压附近的元素 */
+        outline: green 10px solid;
+    }
+    .x{height: 100px;
+        width: 100px;
+        background-color: black;
+        /* 直接将元素设置为圆形 */
+        border-radius: 50%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+    }
+    .o{
+        height: 100px;
+        width: 100px;
+        background-color: red;
+        /* 以下分别代表左上，右上，左下，右下的圆角半径编写 */
+border-top-left-radius:10px;
+border-top-right-radius: 20px;
+border-bottom-left-radius: 30px;
+border-bottom-right-radius: 40px;
+    }
+    .l{
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        /* 横向半径/纵向半径 */
+        border-radius: 20px / 40px;
+    }
+    
+</style>
+<body>
+    <div class="b"></div>
+    <div class="x"></div>
+    <div class="o"></div>
+    <div class="l"></div>
+</body>
+</html>

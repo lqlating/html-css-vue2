@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //方法一
+//     let a=prompt(`in put the num`)
+//     if(a===0||a===1){
+//         console.log('它不是质数也是和数')
+//     }
+//     else if(a<0){
+//         console.log('wrong number')
+//     }
+//     else if(a===2){
+//         console.log(`2是质数`)
+//     }
+//     else{
+//     for(let i=2;i<a-1;i++)
+//     {
+//         if(a%i===0){
+//         console.log(`${a}是和数`)
+//         break
+//     }
+//     else{
+//         console.log(`${a}是质数`)
+//         break}
+//    }
+//     }
+
+
+//方法二
+
+        let a=+prompt('input the number')
+        let flag = false
+        for(let i=2;i<a-1;i++)
+        {
+            if(a%i===0)
+        {
+            flag=true
+        }
+        }
+        if(flag)
+        {alert('he shu')}
+        else{
+        alert('zhi shu')
+        }
+</script>
+<body>
+    
+</body>
+</html>

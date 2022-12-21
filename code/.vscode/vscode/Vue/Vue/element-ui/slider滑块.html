@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<style>
+</style>
+<body>
+  <div id="root">
+    <div class="block">
+        <span class="demonstration">默认</span>
+        <el-slider v-model="value1"></el-slider>
+      </div>
+      <div class="block">
+        <span class="demonstration ">自定义初始值</span>
+        <el-slider v-model="value2"></el-slider>
+      </div>
+      <div class="block">
+        <span class="demonstration">隐藏 Tooltip</span>
+        <el-slider v-model="value3" :show-tooltip="false"></el-slider>
+      </div>
+      <div class="block">
+        <span class="demonstration">格式化 Tooltip</span>
+        <el-slider v-model="value4" :format-tooltip="formatTooltip"></el-slider>
+      </div>
+      <div class="block">
+        <span class="demonstration">禁用</span>
+        <el-slider v-model="value5" disabled></el-slider>
+      </div>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+        data(){
+      return {
+        value1: 0,
+        value2: 50,
+        value3: 36,
+        value4: 48,
+        value5: 42
+      }
+    },
+    methods: {
+      formatTooltip(val) {
+        return val / 100;
+      }
+    }
+  })
+  </script>
+</html>

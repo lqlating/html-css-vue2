@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+  
+
+    </style>
+</head>
+
+<body>
+  <div id="root">
+    <el-checkbox-group v-model="checkList" min="1" max="3" >
+        <el-checkbox label="复选框 A"></el-checkbox>
+        <el-checkbox label="复选框 B"></el-checkbox>
+        <el-checkbox label="复选框 C"></el-checkbox>
+        <el-checkbox label="复选框D"></el-checkbox>
+        <el-checkbox label="禁用" disabled></el-checkbox>
+        <el-checkbox label="选中且禁用" disabled></el-checkbox>
+      </el-checkbox-group>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data () {
+      return {
+        checkList: ['选中且禁用','复选框 A']
+      };
+    }
+  })
+  </script>
+</html>

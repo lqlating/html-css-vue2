@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  
+<div id=root>
+    <button @click="disDrawer = true" >弹出抽屉</button>
+    <el-drawer
+                :title="标题"
+                :visible.sync="disDrawer"
+                size="50%">
+            <div class="form-center">
+                <div class="form-boder">
+                    <el-row>
+                        <el-col :span="6">
+                            <span class="form-boder-title">字段1:</span>
+                            <span>xxx</span>
+                        </el-col>
+                        <el-col :span="6">
+                            <span class="form-boder-title">字段2:</span>
+                            <span>xxx</span>
+                        </el-col>
+                        <el-col :span="6">
+                            <span class="form-boder-title">字段3:</span>
+                            <span>xxx</span>
+                        </el-col>
+                        <el-button @click="add" type="primary" size="mini" style="float: right;">新增</el-button>
+                    </el-row>
+    
+    
+                    <el-dialog title="新增" :visible.sync="dialogFormVisible"  :append-to-body='true' :close-on-click-modal="false">
+                        <el-form ref="addData" :model="dataForm" :rules="rules">
+                            <el-form-item label="col1" prop="col1" >
+                                <el-input type="text" placeholder="请输入col1" clearable v-model="dataForm.col1" style="width: 180px">
+                            </el-form-item>
+                            <el-form-item label="col2" prop="col2" >
+                                <el-input type="text" placeholder="请输入col2" clearable v-model="dataForm.col2" style="width: 180px">
+                                </el-input>
+                            </el-form-item>
+                        </el-form>
+                        <div slot="footer" class="dialog-footer">
+                            <el-button @click="dialogFormVisible = false">取消</el-button>
+                            <el-button type="primary" @click="abc()">确定</el-button>
+                        </div>
+                    </el-dialog>
+    
+                    <div>
+                        <el-form ref="confirmForm" :model="confirmForm" label-width="120">
+                        <el-divider content-position="left">字段信息</el-divider>
+                        <div class="form-center">
+                            <div class="form-boder">
+                                <el-table :data="confirmForm.resourceList" stripe size="mini">
+                                    <el-table-column label="col1" prop="col1" width="140">
+                                        <template slot-scope="scope">
+                                            <el-form-item  :prop="'resourceList.'+scope.$index+'.col1'" >
+                                                {{scope.row.col1}}
+                                            </el-form-item>
+                                        </template>
+                                    </el-table-column>
+                                    <el-table-column label="col2" prop="col2" width="140">
+                                        <template slot-scope="scope">
+                                            <el-form-item  :prop="'resourceList.'+scope.$index+'.col2'" >
+                                                {{scope.row.col2}}
+                                            </el-form-item>
+                                        </template>
+                                    </el-table-column>
+                                    <el-table-column label="col3" prop="col3" width="140">
+                                        <template slot-scope="scope">
+                                            <el-form-item  :prop="'resourceList.'+scope.$index+'.col3'" >
+                                                xxx
+                                            </el-form-item>
+                                        </template>
+                                    </el-table-column>
+                                    <el-table-column label="操作" width="200" fixed="right">
+                                        <template slot-scope="scope">
+                                            <el-button type="text" size="mini"
+                                                       @click="edit(scope.$index)">
+                                                修改
+                                            </el-button>
+                                            <el-button type="text" size="mini"
+                                                       @click="rowDelete(scope.$index)">删除
+                                            </el-button>
+                                        </template>
+                                    </el-table-column>
+                                </el-table>
+                            </div>
+                        </div>
+                        </el-form>
+                    </div>
+                    <el-dialog title="修改" :visible.sync="dialogFormVisibleEdit"  :append-to-body='true' :close-on-click-modal="false" >
+                        <el-form ref="editData" :model="dataForm" :rules="rules">
+                            <el-form-item label="col1" prop="col1" >
+                                <el-input type="text" placeholder="请输入col1" clearable v-model="dataForm.col1" style="width: 180px">
+                            </el-form-item>
+                            <el-form-item label="col2" prop="col2" >
+                                <el-input type="text" placeholder="请输入col2" clearable v-model="dataForm.col2" style="width: 180px">
+                                </el-input>
+                            </el-form-item>
+                        </el-form>
+                        <div slot="footer" class="dialog-footer">
+                            <el-button @click="dialogFormVisibleEdit = false">取消</el-button>
+                            <el-button type="primary" @click="abcEdit()">确定</el-button>
+                        </div>
+                    </el-dialog>
+                </div>
+                <div class="form-foot">
+                    <el-button @click="disDrawer=false" size="small">关闭</el-button>
+                    <el-button @click="save" size="small">提交</el-button>
+                </div>
+    
+            </div>
+    
+        </el-drawer>
+    
+    </div>
+    
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data() {
+            return {
+                dataForm:{},
+                disDrawer: false,
+                dialogFormVisible: false,
+                dialogFormVisibleEdit : false,
+                rules: {
+                    col1: [
+                        {required: true, message: '请填写col1', trigger: 'blur'}
+                    ],
+                    col2: [
+                        {required: true, message: '请填写col2', trigger: 'blur'}
+                    ]
+                },
+				// 列表中单条记录的存储对象
+                listForm: {
+                    col1:'',
+                    col2:'', 
+				},
+				// confirmForm 整个动态列表的命名
+                confirmForm: {
+                    resourceList: [],  
+                },
+            }
+        },
+
+
+
+
+methods: {
+            // 新增的弹框
+            add(){
+                this.dialogFormVisible = true;
+                if(this.dataForm == null || this.dataForm.col2 == '' || this.dataForm.col2 == null || this.dataForm.col1 == '' || this.dataForm.col1 == null) {
+                    this.$nextTick(()=>{
+                            this.$refs['addData'].clearValidate();
+                    })
+                }
+            },
+            // 增加一个对象
+            abc(){
+                this.$refs['addData'].validate((valid) => {
+                    if (valid) {
+                        let col2 = this.dataForm.col2;
+                        let col1 = this.dataForm.col1;
+						// 将弹框中的值赋给列表
+						this.listForm.col1 = col1;
+						this.listForm.col2 = col2;
+						// 加进动态列表里
+						this.confirmForm.resourceList.push(this.listForm);
+                        this.dialogFormVisible = false;
+                        this.dataForm.col1 = '';
+                        this.dataForm.col2 = '';
+                        this.$nextTick(()=>{
+                            this.$refs['addData'].clearValidate();
+                        })
+                    }
+                })
+            },
+
+            // 修改信息
+            abcEdit(){
+                 this.$refs['editData'].validate((valid) => {
+                    if (valid) {
+                        let col2 = this.dataForm.col2;
+                        let col1 = this.dataForm.col1;
+						let index = this.dataForm.index;
+						this.confirmForm.resourceList[index].col1 = col1;
+						this.confirmForm.resourceList[index].col2 = col2;
+						// 通过下标修改了列表中某一条记录的值  页面并不会实时渲染结果 需要使用Vue.set强制列表刷一下
+						Vue.set(this.confirmForm.resourceList, index, this.confirmForm.resourceList[index]);
+                        this.dialogFormVisibleEdit = false;
+                    }
+                 })
+            },
+            //提交
+            save() {
+				this.$message({
+					message: '模拟提交成功',
+					type: 'success'
+				});
+				this.closePageDetailDrawer();
+
+            },
+            closePageDetailDrawer() {
+                //清空表单数据
+                this.confirmForm = {resourceList: []}
+                this.disDrawer = false;
+            },
+            //删除行
+            rowDelete(index) {
+                this.confirmForm.resourceList.splice(index, 1);
+            },
+            // 修改弹框
+            edit(index) {
+                this.dataForm.col1 = this.confirmForm.resourceList[index].col1;
+                this.dataForm.col2 = this.confirmForm.resourceList[index].col2;
+                this.dataForm.index = index; // 记录一下下标
+                this.dialogFormVisibleEdit = true;
+
+            },
+        }
+
+
+
+    })
+  </script>
+</html>

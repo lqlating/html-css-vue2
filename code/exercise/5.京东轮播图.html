@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京东轮播图</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        /* 成为pointer的参考物，设置图片的大小，使图片居中 */
+        .list{
+            position: relative;
+            width: 590px;
+            height: 470px;
+            margin: 100px auto;
+        }
+        /* 使图片脱离文档流，全部重叠在一起 */
+        li{
+            position: absolute;
+
+        }
+        /* 将装有导航点的盒子设置为高层级，浮到最表面，并将其设置到图片下方 */
+        .pointer{
+            position: absolute;
+            z-index: 999;
+            bottom:25px;
+            left: 50px;
+        }
+        /* 设置导航点的大小颜色，透明度，边框 */
+         a{
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: darkgray;
+            margin-left: 4px;
+            border: 2px solid transparent ;
+            background-clip: content-box;
+            
+        }
+        /* 鼠标移到目标上时的特效 */
+        a:hover{
+            
+            background-color:  rgb(254, 254, 254);
+            border:2px solid rgb(184, 178, 178,.6);
+        }
+        
+        .active{
+            background-color:  rgb(254, 254, 254);
+            border:2px solid rgb(184, 178, 178,.6);
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="list">
+        <!-- 将图片添加进布局 -->
+        <li><a href="#"><img src="../picture/1..jpg" alt=""></a></li>
+        <li><a href="#"><img src="../picture/3..jpg" alt=""></a></li>
+        <li><a href="#"><img src="../picture/4..jpg" alt=""></a></li>
+        <li><a href="#"><img src="../picture/5..jpg" alt=""></a></li>
+        <li><a href="#"><img src="../picture/6..jpg" alt=""></a></li>
+        <div class="pointer">
+            <!-- 几个导航点的加入 -->
+            <a class="active" href="../picture/1..jpg" class="active"></a>
+            <a href="../picture/3..jpg"></a>
+            <a href="../picture/4..jpg"></a>
+            <a href="../picture/5..jpg"></a>
+            <a href="../picture/6..jpg"></a>
+        </div>
+    </ul>
+</body>
+</html>

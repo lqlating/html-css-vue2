@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 使用Boolean()函数
+            -转换情况：
+            数字：
+                  -0和NaN转化为false其余都是ture
+            字符串：
+                  -空串是false其余是ture
+                  -null和undefined都转化为false
+                  
+            对象：
+                  -对象对象会转换为ture
+
+        */
+        let a=100
+
+        a=Boolean(a)
+        console.log(typeof a,a)
+    </script>
+</body>
+</html>

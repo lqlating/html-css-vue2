@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>请选择你的爱好： <input type="checkbox" id="check-all">全选</div>
+    <div>
+        <input type="checkbox" name="hobby" value="乒乓球">乒乓球
+        <input type="checkbox" name="hobby" value="篮球">篮球
+        <input type="checkbox" name="hobby" value="羽毛球">羽毛球
+        <input type="checkbox" name="hobby" value="足球">足球
+    </div>
+    <div>
+        <button id="all">全选</button>
+        <button id="no">取消</button>
+        <button id="reverse">反选</button>
+        <button id="send">提交</button>
+    </div>
+
+    <script>
+        const allBtn = document.getElementById("all")
+        const noBtn = document.getElementById('no')
+        const reverseBtn = document.getElementById('reverse')
+        const sendBtn = document.getElementById("send")
+        const hobbies = document.getElementsByName('hobby')
+        const checkAllBtn = document.getElementById('check-all')
+        
+        
+        //下方全选按钮
+        allBtn.onclick = function(){
+            for(let i = 0;i<hobbies.length;i++)
+            {hobbies[i].checked = true}
+            checkAllBtn.checked = true
+        }
+
+        //取消按钮
+        noBtn.onclick = function(){
+            for(let i = 0;i<hobbies.length;i++)
+            {hobbies[i].checked = false}
+            checkAllBtn.checked = false
+        }
+
+        //反选按钮
+        reverseBtn.onclick = function(){
+            for(let i = 0;i<hobbies.length;i++)
+            {hobbies[i].checked = !hobbies[i].checked}
+            const checkedBox = document.querySelectorAll("[name=hobby]:checked")
+            if(hobbies.length === checkedBox.length)
+            {checkAllBtn.checked = true}
+            else{
+            checkAllBtn.checked = false
+            }
+        }
+
+        //提交按钮
+        sendBtn.onclick = function(){
+            for(let i = 0; i<hobbies.length ; i++)
+            {
+             if(hobbies[i].checked === true)
+                alert(hobbies[i].value)
+            }
+        }
+
+        //上方全选按钮
+        checkAllBtn.onclick = function () {
+            for(let i = 0;i<hobbies.length;i++)
+            {hobbies[i].checked = checkAllBtn.checked}
+        }
+
+        //当四个爱好子按钮全选时上方全选按钮也被勾选
+        
+        for(let i = 0;i<hobbies.length;i++){
+                hobbies[i].onchange = function(){
+                    const checkedBox = document.querySelectorAll("[name=hobby]:checked")
+                    if(hobbies.length === checkedBox.length)
+                    {checkAllBtn.checked = true}
+                    else{
+                        checkAllBtn.checked = false
+                    }
+                }
+            }
+
+    </script>
+</body>
+</html>

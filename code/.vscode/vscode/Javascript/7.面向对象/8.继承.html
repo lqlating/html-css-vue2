@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    class ainimal{
+        constructor(name){
+            this.name=name
+
+        }
+        sayHello(){
+            console.log('something is shuting')
+        }
+    }
+    class cat extends ainimal{
+        constructor(name,age){
+            super(name)
+            this.age = age
+
+        }
+        sayHello(){
+            console.log('miao miao')
+        }
+    }
+    class dog extends ainimal{
+        sayHello(){
+            console.log('wang wang')
+        }
+    }
+    const dahuang = new dog('dahuang')
+    const xiaomo = new cat('xiaomo',18)
+    console.log(dahuang)
+    console.log(xiaomo)
+
+</script>
+<body>
+    
+</body>
+</html>

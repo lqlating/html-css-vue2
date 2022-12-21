@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<style>
+    #root{
+        width: 1000px;
+        margin: 0 auto;
+    }
+  .header{
+    background-color: #bfa;
+  }
+   .nameInput{
+    width: 200px;
+   }
+  .main{
+    background-color: blanchedalmond;
+  }
+  .footer{
+    background-color: orange;
+  }
+  .newThing{
+    width: 700px;
+    margin: 0 auto;
+  
+  }
+  .newContent{
+    width: 500px;
+  }
+  .topicButton{
+    width: 200px;
+  }
+  .newthing-wrapper{
+    margin-left: 100px;
+  }
+ 
+</style>
+<body>
+  <div id="root">
+    
+        <div class="header">
+            <div>你的姓名：<el-input class="nameInput" placeholde="请输入姓名"></el-input></div>
+            <div>你的性别：<el-radio v-model="radio" label="1">男</el-radio>
+                <el-radio v-model="radio" label="2">女</el-radio>
+            </div>
+            <div>你的爱好：
+                <el-checkbox-group 
+                v-model="Habits">
+                <el-checkbox v-for="habit in Habits" :label="habit" :key="habit">{{habit}}</el-checkbox>
+              </el-checkbox-group>  
+            </div>
+            </div>
+        <div class="main">
+            <div v-for="topic in topicList">nihao</div>
+        </div>
+        <div class="footer">
+        <div class="newThing">
+            <div class="newthing-wrapper">
+                <div>题目类型</div>
+                <el-radio v-model="dan" label="1">单选</el-radio>
+                <el-radio v-model="duo" label="2">多选</el-radio>
+                <el-radio v-modle="tian" label="3">填空</el-radio>
+                <br><br/>
+                <el-input class="newContent" placeholder="请输入答案"></el-input>
+                <br><br/>
+                <el-button class="topicButton" type="primary" @click="addTi">新增题目</el-button>
+                <el-button class="topicButton" type="primary">提交</el-button>
+            </div>
+        </div>
+    </div>
+   
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data(){
+        return{
+            topicList:[
+                {
+                    type:'',
+                    name:'',
+                    answer:''
+            },
+            
+            ],
+            Habits:[
+                'bas','foot','table'
+            ],
+            
+        }
+        
+      },
+      methods:{
+            addTi(){
+                this.topicList.unshift(this.Habits)
+            }
+        }
+    })
+  </script>
+</html>

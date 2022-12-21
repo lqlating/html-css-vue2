@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{color: red;}
+        div#red{color: orange;}
+    </style>
+</head>
+<body>
+    <div id="red" class="jiji">
+        8888888888
+    </div>
+</body>
+<!-- 选择器的优先级：
+内联样式（1000）>id选择器（100）>类和伪类选择器（10）>元素选择器（1）》通配选择器(0)>继承的选择器格式（没有优先级）
+比较优先级时，应该将所有选择器的优先级相加进行比较,比如上面的div#red优先级是100+1>1
+因此执行div#red中的指令
+分组选择器的优先级是单独计算（div，p，span）
+选择器的累加不会超过最大优先级（类选择器的优先级再累加也不能超过id选择器的优先级，id相加也不会超过内联式的优先级）
+如果有限度计算后相等那么优先使用下面的样式
+在样式后面加上！important表示该样式获得最高优先级-->
+</html>

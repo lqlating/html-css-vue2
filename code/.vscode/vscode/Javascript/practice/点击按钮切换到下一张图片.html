@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .outer-wrapper{
+        margin: 0px auto;
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="outer-wrapper">
+        <div class="img-wrapper">
+         <img src="../img/pic1.png">
+        </div>
+
+        <div class="btn-wrapper">
+            <button id="pre">上一张</button>
+            <button id="next">下一张</button>
+        </div>
+    </div>
+
+    <script>
+     const img = document.getElementsByTagName('img')[0]
+     const pre = document.getElementById('pre')
+     const next = document.getElementById('next')
+     let x = 0
+     const imgArr = [
+        '../img/pic1.png',
+        '../img/pic2.png',
+        '../img/pic3.png',
+        '../img/pic4.png',
+    ]
+     pre.onclick = function(){
+        x--
+        if(x<0)
+        {x=imgArr.length-1}
+        img.src =  imgArr[x]
+     }
+     next.onclick = function(){
+        x++
+        if(x>imgArr.length-1)
+        {x=0}
+        img.src = imgArr[x]
+     }
+
+    </script>
+</body>
+</html>

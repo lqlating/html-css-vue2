@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="./target.html">
+        <!-- name值是必须的，不然无法收集数据 -->
+        用户名<input type="text" name="username">
+        <br>
+        好密码<input type="password" name="password">
+        <br>
+        <!-- 单选按钮，当name值相同时只能选中一个，value是必要的，当选中时提交其中的值到服务器 -->
+        <input type="radio" name="hello" value="1" checked>
+        <input type="radio" name="hello" value="2">
+        <br>
+        <!-- 多选框，可以将value中的值提交给服务器，checked表示默认选中 -->
+        <input type="checkbox" name="nihao" value="3" checked>
+        <input type="checkbox" name="nihao" value="4">
+        <input type="checkbox" name="nihao" value="5">
+        <input type="checkbox" name="nihao" value="6">
+        <br>
+        <!-- 将value中的值传递给服务器,option中的seleced表示默认选中 -->
+        <select name="haha" id="">
+            <option  value="1" che>
+              first
+            </option>
+            <option selected value="2">
+              second
+            </option>
+            <option value="3">
+               third
+            </option>
+        </select>
+<br>
+<!-- 提交按钮，用于提交数据 -->
+        登录<input type="submit" value="log">
+    </form>
+</body>
+</html>

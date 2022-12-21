@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<style>
+    #root{
+        margin: 0 auto;
+        width: 1100px;
+    }
+    .header{
+        margin-bottom: 20px;
+        
+    }
+    .body{
+        border: 1px solid rgb(201, 190, 190);
+        border-radius: 3px;
+    }
+   .header .addButton{
+        width: 1100px;
+        margin-top: 20px;
+    }
+</style>
+<body>
+  <div id="root">
+  <div class="header">
+    <el-row :gutter="20">
+<el-col :span="6"><el-input
+  placeholder="请输入姓名"
+  v-model="userInfo.name"
+  clearable>
+</el-input></el-col>
+<el-col :span="6"><el-input
+  placeholder="请输入性别"
+  v-model="userInfo.sex"
+  clearable>
+</el-input></el-col>
+<el-col :span="6"><el-input
+  placeholder="请输入电话号码"
+  v-model="userInfo.phone"
+  clearable>
+</el-input></el-col>
+<el-col :span="6"><el-date-picker
+    v-model="userInfo.birthday"
+    type="date"
+    placeholder="选择日期"
+    format="yyyy 年 MM 月 dd 日"
+    value-format="yyyy-MM-dd">
+  </el-date-picker>
+</el-col>
+</el-row>
+<el-input
+    style="margin-top: 20px;"
+    placeholder="输入用户名字进行搜索" 
+    class="input-with-select"
+    v-model="searchThing">
+      <el-button slot="append" v-model="searchThing" icon="el-icon-search" @click="searchTodo"></el-button>
+    </el-input>
+<el-button class="addButton" type="primary" @click="addUser">添加用户信息</el-button>
+  </div>
+  <div class="body">
+    <template>
+        <el-table
+          :data="tableData"
+          style="width: 100%">
+          <el-table-column
+          label="序号
+          " width="180">
+             <template
+              slot-scope="scope"> {{scope.$index + 1 }}
+             </template>
+         </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="sex"
+            label="性别"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="phone"
+            label="号码">
+          </el-table-column>
+          <el-table-column
+            prop="birthday"
+            label="生日">
+          </el-table-column>
+          <el-table-column
+            label="操作">
+            <template slot-scope="scope">
+            <el-button type="primary" icon="el-icon-edit" circle @click="editUser(scope.row,scope.$index"></el-button>
+            <el-button type="danger" icon="el-icon-delete" circle @click="deleUser(scope.$index)"></el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </template>
+  </div>
+  <div class="footers">
+    <el-dialog
+  title="修改用户信息"
+  :visible.sync="dialogVisible"
+  width="30%"
+  >
+  <el-form >
+  <el-form-item label="姓名">
+    <el-input v-model="editObj.name" placeholder="输入姓名"></el-input>
+  </el-form-item>
+  <el-form-item label="性别" >
+    <el-input v-model="editObj.sex" placeholder="输入性别"></el-input>
+  </el-form-item>
+  <el-form-item label="号码">
+    <el-input v-model="editObj.phone" placeholder="输入号码"></el-input>
+  </el-form-item>
+  <el-form-item label="生日">
+    <el-date-picker
+    v-model="editObj.birthday"
+    type="date" format="yyyy 年 MM 月 dd 日"
+    value-format="yyyy-MM-dd"
+    placeholder="选择日期">
+</el-date-picker>
+  </el-form-item>
+  <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogVisible = false">取 消</el-button>
+    <el-button type="primary" @click="confirm">确 定</el-button>
+  </span>
+</el-form>
+</el-dialog>
+  </div>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data() {
+        return{
+          userInfo:{
+            name:'',
+            sex:'',
+            birthday:'',
+            phone:''
+          },
+          dialogVisible:false,
+          tableData:[{
+            name:'王二狗',
+            sex:'男',
+            birthday:'1996-9-06',
+            phone:'18965896396',
+          },
+          {
+            name:'王大狗',
+            sex:'男',
+            birthday:'1996-6-06',
+            phone:'18545865496',
+          }],
+          editObj:{
+            name:'',
+            sex:'',
+            birthday:'',
+            phone:'',
+          
+          },
+          userIndex:0,
+          searchThing:''
+        }
+  },
+  methods:{
+    //增添新用户
+            addUser(){
+              if(!this.userInfo.name){{
+                this.$message({
+                message: '请输入姓名',
+                type: 'warning'
+                });}
+                return;
+              }
+              
+              if(!this.userInfo.sex){{
+                this.$message({
+                message: '请输入性别',
+                type: 'warning'
+                });}
+                return;
+              }
+              if(!this.userInfo.birthday){{
+                this.$message({
+                message: '请输入生日',
+                type: 'warning'
+                });}
+                return;
+              }
+              if(!this.userInfo.phone){{
+                this.$message({
+                message: '请输入号码',
+                type: 'warning'
+                });}
+                return;
+              }
+              if (!/^1[3456789]\d{9}$/.test(this.userInfo.phone)) {
+                this.$message({
+                    message: '请输入正确的电话号码！',
+                    type: 'warning'
+                });
+                return;
+            }
+              this.tableData.push(this.userInfo);
+              this.userInfo = {
+                name:'',
+                sex:'',
+                phone:'',
+                birthday:''
+              }
+            },
+            delUser(id){
+              this.$confirm('确认删除?')
+              .then(_ => {
+                    this.tableData.splice(id, 1); 
+                    //此处是重点难点，分析vue源码有帮助与理解
+                })
+                .catch(_ => { });
+            },
+            editUser(item, idx) {
+            //console.log(item);
+            this.userIndex = idx;//确认编辑的是哪个index
+            this.editObj = {
+                name: item.name,
+                sex: item.sex,
+                phone: item.phone,
+                birthday: item.birthday,
+            };
+            this.dialogVisible = true;
+        },
+        confirm() {
+            this.dialogVisible = false;
+            Vue.set(this.tableData, this.userIndex, this.editObj);
+            
+        },
+        searchTodo(){
+       this.tableData = this.tableData.filter((t)=>
+          {
+           return t.name === this.searchThing
+          })
+        }
+          }
+})
+  </script>
+</html>

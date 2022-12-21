@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初始Vue</title>
+</head>
+<script src="../js/vue.js"></script>
+<body>
+    <div id="root">
+        姓：<input type="text" v-model="firstname"><br/n>
+        名: <input type="text" v-model="lastname"><br/n>
+        全名<span>{{fullname}}</span>
+    </div>
+</body>
+<script>
+        Vue.config.productionTip =false;
+        const vm = new Vue({
+            el: '#root',
+            data:{
+                firstname:'张',
+                lastname:'三'
+            },
+            computed:{
+                fullname(){
+                        return this.firstname + "-" +this.lastname
+                }
+            }
+        })
+    </script>
+</html>

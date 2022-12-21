@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .outer-wrapper{
+        margin: 0px auto;
+        text-align: center;
+    }
+    .img-wrapper{
+        width: 590px;
+        height: 470px;
+        margin: 0 auto;
+    }
+    img{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+    <div class="outer-wrapper">
+        <div class="img-wrapper">
+         <img src="../img/pic1.png">
+        </div>
+
+        <div class="btn-wrapper">
+            <button id="pre">上一张</button>
+            <button id="autoBtn">自动</button>
+            <button id="next">下一张</button>
+        </div>
+    </div>
+
+    <script>
+     const img = document.getElementsByTagName('img')[0]
+     const pre = document.getElementById('pre')
+     const next = document.getElementById('next')
+     const autoBtn = document.getElementById('autoBtn')
+    
+     let x = 0
+     const imgArr = [
+        '../img/pic1.png',
+        '../img/pic2.png',
+        '../img/pic3.png',
+        '../img/pic4.png',
+    ]
+    
+     pre.onclick = function(){
+        clearTimeout(timer)
+        x--
+        if(x<0)
+        {x=imgArr.length-1}
+        img.src =  imgArr[x]
+     }
+     next.onclick = function(){
+        clearTimeout(timer)
+        x++
+        if(x>imgArr.length-1)
+        {x=0}
+        img.src = imgArr[x]
+     }
+     let timer
+     autoBtn.onclick = function(){
+        clearTimeout(timer)
+        timer = setTimeout(function auto(){
+        next.onclick()
+        timer = setTimeout(auto,3000)
+       },3000)
+}
+    </script>
+</body>
+</html>

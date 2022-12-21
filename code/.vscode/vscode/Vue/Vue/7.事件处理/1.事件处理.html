@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>初始Vue</title>
+</head>
+<script src="../js/vue.js"></script>
+<body>
+    <div id="root">
+        <button v-on:click="showInfo">click</button><br/n>
+        <button @click="showInfo(33,$event)">click</button>
+    </div>
+</body>
+<script>
+        Vue.config.productionTip =false;
+        const vm = new Vue({
+            el: '#root',
+            data:{
+              name:"nihao"
+            },
+            methods:{
+             showInfo(event,a){
+                alert('hello classmate')
+                console.log(event,a)
+             }
+            }
+        })
+    </script>
+</html>

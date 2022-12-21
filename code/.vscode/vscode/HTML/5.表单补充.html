@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="./target.html">
+        <!-- input中的value表示默认初始值,autocomplete=“off”表示将输入的记录隐藏（只能在相同的name值中生效），加载form标签中则是使所有的全部生效 
+        readonly 将表单设置为只读，数据会提交
+        disabled 将表单设置为禁用，数据不会提交
+        autofocus 设置表单自动获取焦点-->
+        <input type="text" name="username" value="你好" autocomplete="off">
+        <br>
+        <!-- 普通按钮，没有任何作用 -->
+        <button type="button">按钮</button>
+        <!-- 可以将文本框的内容重置为默认值 -->
+        <button type="reset">重置</button>
+        <button type="submit">提交</button>
+        <br>
+        <!-- 上面三种写法与下面三种写法等价 -->
+       <input type="button" value="按钮"> <input type="reset"> <input type="submit"> 
+       <br>
+       <!-- 电子邮件框，会对输入的文本进行格式上的提醒 -->
+       <input type="email">
+    </form>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+ <div id="root">
+    <h2>{{msg}}</h2>
+    <school></school>
+    <student></student>
+ </div>
+</body>
+<!-- import Vue before Element -->
+<script src="../js/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js">
+</script>
+  <script>
+    Vue.config.productionTip = false
+    const school = Vue.extend({
+        template:`
+        <div>
+            <h2>hello,{{name}}</h2>
+            <h2>hello,{{age}}</h2>
+        </div>`,
+        data(){
+            return{
+                name:"tom",
+                age:18
+            }
+        }
+    })
+
+    const student = Vue.extend({
+        template:`
+        <div>
+            <h2>hello,{{name}}</h2>
+            <h2>hello,{{address}}</h2>
+        </div>`,
+        data(){
+            return{
+                name:"beida",
+                address:'beijing tian an men'
+            }
+        }
+    })
+
+    new Vue({
+        el:'#root',
+        data:{
+            msg:'welcome studying javascript'
+        },
+        components:{
+           school,
+           student
+        }
+    })
+        
+   
+  </script>
+</html>

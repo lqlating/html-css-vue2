@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //方法1
+    // for(let i=0;i<1000;i++)
+    // {
+    //     if(i<10){
+    //         console.log(i)
+    //     }
+    //     if(i>10&&i<100){
+    //         let a =(i%10)
+    //         let b =((i-a)/10)
+    //         if(a*a+b*b===i)
+    //         {console.log(i)
+    //         }
+    //     }
+    //     if(i>=100){
+    //         let c =(i%10)
+    //         let d =(((i-c)/10)%10)
+    //         let f =(i-c-(d*10))/100
+    //         if((c**3+d**3+f**3)===i)
+    //         {
+    //             console.log(i)
+    //         }
+    //     }
+    // }
+
+
+
+    //方法二
+    for(i=99;i<1000;i++)
+    {
+        let bai = parseInt(i/100)
+        let shi = parseInt((i-bai*100)/10)
+        let ge  =parseInt(i-bai*100-shi*10)
+        if(bai**3+shi**3+ge**3===i)
+        {
+            console.log(i)
+        }
+    }
+    
+
+</script>
+<body>
+    
+</body>
+</html>

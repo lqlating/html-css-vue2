@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 和Java基本相同*/
+        let a=4+4
+        let b,c,d
+        b=6-3
+        c=3*8
+        d=8/4
+        d=6**2//表示6的2次方
+        d=18%3//取余
+        /*当其他运算的操作符为非数字类型时，会转换为数值进行计算
+        null=0
+        ture=1
+        undefined=NaN
+        */
+
+
+        /* 当任意一个值和字符串做加法运算时，它会先将其他值转换为字符串，
+               然后再做拼串的操作
+            
+           可以利用这一点来完成类型转换 
+                任意类型+''= 
+                直接转换为字符串*/
+        a='he'+'llo'//结果是hello
+        a='1'+2//结果是12
+        a= true
+        a= a+''
+        console.log(typeof a,a)
+        // 此时a已经被转化为string类型
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

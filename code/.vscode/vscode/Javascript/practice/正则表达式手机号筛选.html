@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let re = /(1[3-9]\d)\d{4}(\d{4})/g
+        let str = 'jidhkghaiihg15965856325djiahgnhhsug15896365474fjhhghggjhnghsdhgjihhahg15426369854dfhhghhs18785489658'
+        let result
+        while((result = re.exec(str)))
+        {console.log(result[0],result[1]+'****'+result[2])}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

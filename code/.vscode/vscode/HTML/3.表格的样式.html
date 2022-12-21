@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.box{
+    width: 500px;
+    height: 500px;
+    background-color: aquamarine;
+    /* 将父元素设置为table-cell后设置verti-align上下居中 */
+    display: table-cell;
+    vertical-align: middle;
+}
+.box2{
+    width: 100px;
+    height: 100px;
+    background-color: black; 
+    /* 设置水平居中 */
+    margin: 0 auto;   
+}
+        table{
+            width: 50%;
+            border: 1px solid black;
+            /* 边框合并 */
+            border-collapse: collapse;
+            /* table也是块元素，可以设置为居中 */
+            margin: 40px auto;
+        }
+        td{
+            border: 1px solid black;
+            height: 100px;
+            /* td中的元素默认垂直居中（可以通过verti-align设置位置，bottom，top，middle等） */
+            vertical-align: bottom;
+        }
+        /* 伪元素选择器选中奇数行设置背景颜色 */
+        tr:nth-child(2n+1){
+            background-color: aquamarine;
+        }
+        /* 伪元素选择器选中偶数行设置背景颜色（防止阅读时串行）*/
+        tr:nth-child(2n){
+            background-color: burlywood;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="box2"></div>
+    </div>
+    <table>
+        <tr>
+            <td>
+                姓名
+            </td>
+            <td>
+                年纪
+            </td>
+            <td>
+                籍贯
+            </td>
+            <td>
+                爱好
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小明
+            </td>
+            <td>
+                15
+            </td>
+            <td>
+                湖北
+            </td>
+            <td>
+                篮球
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小张
+            </td>
+            <td>
+                14
+            </td>
+            <td>
+                山东
+            </td>
+            <td>
+                足球
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小李
+            </td>
+            <td>
+                16
+            </td>
+            <td>
+                广东
+            </td>
+            <td>
+                唱歌
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小明
+            </td>
+            <td>
+                15
+            </td>
+            <td>
+                湖北
+            </td>
+            <td>
+                篮球
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小张
+            </td>
+            <td>
+                14
+            </td>
+            <td>
+                山东
+            </td>
+            <td>
+                足球
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小李
+            </td>
+            <td>
+                16
+            </td>
+            <td>
+                广东
+            </td>
+            <td>
+                唱歌
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小明
+            </td>
+            <td>
+                15
+            </td>
+            <td>
+                湖北
+            </td>
+            <td>
+                篮球
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小张
+            </td>
+            <td>
+                14
+            </td>
+            <td>
+                山东
+            </td>
+            <td>
+                足球
+            </td>
+        </tr>
+        <tr>
+            <td>
+                小李
+            </td>
+            <td>
+                16
+            </td>
+            <td>
+                广东
+            </td>
+            <td>
+                唱歌
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
+<!-- table是块元素 
+border-spacing:指定边框之间的距离
+border-collapse:设置边框合并-->

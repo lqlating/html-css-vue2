@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+  <div id="root">
+  <h2>people list</h2>
+  <ul>
+    <li v-for="p in personList">
+        {{p.name}}-{{p.age}}
+    </li>
+  </ul>
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data:{
+         personList:[
+            {id:'1',name:'刘备',age:'50'},
+            {id:'2',name:'关羽',age:'45'},
+            {id:'3',name:'张飞',age:'35'}
+         ]
+      }
+    })
+  </script>
+</html>

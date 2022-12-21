@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<style>
+</style>
+<body>
+  <div id="root">
+   <el-select v-model="value" clearable placeholder="请选择">
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-select>
+   </el-select>
+   
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      data() {
+        return{
+            options:[
+                {
+                    value:'op1',
+                    label:'雪糕'
+                },
+                {
+                    value:'op2',
+                    label:'蛋糕'
+                },
+                {
+                    value:'op3',
+                    label:'火锅'
+                },
+            ],
+            value:''
+        }
+    }
+  })
+  </script>
+</html>

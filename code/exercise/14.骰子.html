@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    html{
+        perspective: 800px;
+    }
+    .out {
+      
+        width: 250px;
+        height: 250px;
+        margin: 100px auto;
+        transform-style: preserve-3d;
+        animation:run 20s infinite linear;
+    }
+
+    .out>div {
+        width: 250px;
+        height: 250px;
+        position: absolute;
+    
+    }
+img{
+    vertical-align: top;
+}
+    .one {
+        transform: rotateY(90deg) translateZ(125px);
+    }
+
+    .two {
+        transform: rotateY(-90deg) translateZ(125px);
+    }
+
+    .three {
+        transform: rotateX(90deg) translateZ(125px);
+    }
+
+    .four {
+
+        transform: rotateX(-90deg) translateZ(125px);
+    }
+
+    .five {
+        transform: rotateY(180deg) translateZ(125px);
+    }
+
+    .six {
+        transform: rotateY(0deg) translateZ(125px);
+    }
+    @keyframes run {
+        from{
+            transform: rotateX(0) rotateZ(0);
+
+        }
+        to{
+            transform: rotateX(360deg) rotateZ(360deg);
+
+        }
+        
+    }
+</style>
+
+<body>
+    <div class="out">
+   
+            <div class="one"><img src="../picture/骰子/1.png" alt=""></div>
+            <div class="two"><img src="../picture/骰子/2.png" alt=""></div>
+            <div class="three"><img src="../picture/骰子/3.png" alt=""></div>
+            <div class="four"><img src="../picture/骰子/4.png" alt=""></div>
+            <div class="five"><img src="../picture/骰子/5.png" alt=""></div>
+            <div class="six"><img src="../picture/骰子/6.png" alt=""></div>
+      
+    </div>
+</body>
+
+</html>

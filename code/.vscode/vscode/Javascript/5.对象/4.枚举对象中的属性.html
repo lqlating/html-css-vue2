@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let student = {
+        name:'lihua',
+        age:19,
+        nihao:7,
+        [Symbol()]:'jijijij'
+        
+    }
+    // 将对象中的属性枚举出来，语法如下，但是不可枚举使用特殊符号创建的属性
+    for(let propname in student)
+    {
+        console.log(propname,student[propname])
+    }
+
+</script>
+<body>
+    
+</body>
+</html>

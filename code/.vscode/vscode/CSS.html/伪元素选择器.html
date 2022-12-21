@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ::first-letter{
+            color: blue;
+            font-size: 61px;
+        }
+        ::first-line{
+            background-color: brown;
+    
+        }
+        ::selection{
+            color: chartreuse;
+            background-color: blue;
+        }
+        div::before{
+            content: '('
+            
+
+        }
+        div::after{
+            content: ')'
+        }
+    </style>
+</head>
+<body>
+    <div>在法国里维埃拉风光宜人的海滨地区，大约位于马赛 与意大利边境的中途， 坐落着一家高大气派、玫瑰色的旅馆。挺拔的棕榈树给富丽堂皇的旅馆正门带来一 片阴凉，门前延伸出一小块亮晶晶的沙滩。近来，这里已成了显贵名流们的避暑胜 地。十多年前，当英国房客在四月间去北方后，这房子就几乎没人住了。如今，旅 馆四周却冒出了许多带游廊的平房，但本书的故事开始之时，也还只有十几幢圆顶 的老式别墅。这些圆顶别墅已经衰败，就像戈赛的外宾旅馆与距此地五英里远的戛 纳 之间茂密的松树林中的睡莲一样。</div>
+</body>
+<!-- 伪元素，表示页面中一些特殊的并不真实的存在的元素(特殊的位置)
+伪元素使用::开头
+::first-letter 表示第一个字母
+::first-line 表示第一行
+::selection 表示选中的内容
+::before 元素的开始
+::after 元素的最后
+- before 和 after 必须结合content属性来使用
+ -->
+</html>

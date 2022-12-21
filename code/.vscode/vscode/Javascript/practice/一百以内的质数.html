@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    for (let i = 2; i < 100; i++) {
+        let flag = true//此语句不能写在for外面，否则出错
+        for (let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                flag = false;
+            
+            }
+        }
+        if (flag === true) 
+        { 
+            document.write(`${i}是质数<br>`) }
+    }
+</script>
+
+<body>
+
+</body>
+
+</html>

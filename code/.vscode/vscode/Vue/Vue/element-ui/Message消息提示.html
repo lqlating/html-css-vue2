@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<style>
+</style>
+<body>
+  <div id="root">
+    <el-button :plain="true" @click="open1">警告</el-button>
+    <el-button :plain="true" @click="open2">成功</el-button>
+    <el-button :plain="true" @click="open3">错误</el-button>
+    
+  </div>
+</body>
+  <!-- import Vue before Element -->
+  <script src="../js/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+        methods:{
+            open1() {
+       this.$message({
+        message:'this is a waring',
+        type:'warning',
+        //引号必不可少
+        showClose:'ture'
+       })
+      },
+      open2() {
+       this.$message({
+        message:'this is a success',
+        type:'success',
+        //引号必不可少
+        showClose:'ture'
+       })
+      },
+      open3() {
+       this.$message({
+        message:'this is a error',
+        type:'error',
+        //引号必不可少
+        showClose:'ture'
+       })
+      }
+            }
+      
+  })
+  </script>
+</html>
